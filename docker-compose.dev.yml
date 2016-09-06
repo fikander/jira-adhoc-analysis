@@ -1,0 +1,13 @@
+version: '2'
+services:
+  server:
+    build: .
+    restart: always
+    ports:
+      - "8888:8888"
+    volumes:
+      - $PWD/notebooks:/notebooks
+      - $PWD/tools:/src/tools
+      - $PWD/../jira-cycle-extract:/src/jira-cycle-extract
+    env_file:
+      - .env

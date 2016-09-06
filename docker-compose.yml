@@ -1,0 +1,11 @@
+version: '2'
+services:
+  server:
+    image: fikander/jira-adhoc-analysis
+    restart: always
+    ports:
+      - "8888:8888"
+    volumes:
+      - $PWD/notebooks:/notebooks
+    env_file:
+      - .env
