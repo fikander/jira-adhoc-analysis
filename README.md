@@ -21,13 +21,49 @@ Next, launch the server:
 
     docker-compose up
 
-# Usage
-`jira-adhoc-analysis` Docker container exposes Jupyter notebook at http://localhost:8888.
+To shut the server down once you're done:
 
+    docker-compose down
+
+# Usage
+`jira-adhoc-analysis` Docker container exposes Jupyter notebook at http://localhost:8888. Navigate there for Jupyter UI, where the most interesting stuff happens:
+
+![Jupyter UI](/images/jupyter_ui.png)
+
+Check [sample notebook](http://localhost:8888/notebooks/sample.ipynb) for ideas on what and how can be analysed.
+
+Copy sample notebook to customise it.
+
+![Jupyter UI](/images/jupyter_copy.png)
+
+New notebooks will be saved in `notebook` subfolder thanks to Docker volume mapping set up in `docker-compose.yml` used by `docker-compose` call.
+
+## Configuration
+To configure for your own project, change `config_yaml` variable and set it up according to [instructions for jira-cycle-extract](https://github.com/fikander/jira-cycle-extract).
+
+![Jupyter UI](/images/jupyter_config.png)
+
+Authentication for your JIRA domain can be accomplished by either editing `.env` file (as described above) or editing `connection` dictionary in `config_yaml` variable, e.g.
+
+    connection:
+      domain: http://MY_JIRA_DOMAIN
+      username: USERNAME
+      password: PASSWORD
+
+You can also specify domain only, like so:
+
+    connection:
+      domain: http://MY_JIRA_DOMAIN
+
+in which case you'll be prompted to enter username and password as notebook is being evaluated.
+
+## Executing calculations
+
+Once you've copied the notebook and configured it, execute notebook with Cell -> Run All.
 
 # Advanced Usage
-You can open a terminal on the Jupyter server using
+You can open a terminal on the Jupyter server using:
 
     docker-compose -f docker-compose.yml exec server /bin/bash
 
-From there, you can use iPython to execute the same
+From there, you can use iPython to execute arbitrary code using pandas, jira-cycle-extract and other installed modules.
