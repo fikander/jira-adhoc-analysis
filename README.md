@@ -85,3 +85,10 @@ You can open a terminal on the Jupyter server using:
     docker-compose -f docker-compose.yml exec server /bin/bash
 
 From there, you can use iPython to execute arbitrary code using pandas, jira-cycle-extract and other installed modules.
+
+# TODO
+
+  - continuous integration
+  - Makefile
+  - more examples of analysis
+  - simplify notebooks by pulling code to tools Python scripts
