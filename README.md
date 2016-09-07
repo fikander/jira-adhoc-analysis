@@ -21,6 +21,22 @@ Next, launch the server:
 
     docker-compose up
 
+This will take time for the first time as the image (around 1GB at the moment) needs to be pulled from Docker hub:
+
+    => docker-compose up
+    Creating network "jiraadhocanalysis_default" with the default driver
+    Pulling server (fikander/jiraadhocanalysis_server:latest)...
+    latest: Pulling from fikander/jiraadhocanalysis_server
+    357ea8c3d80b: Downloading [==================>                                ] 19.39 MB/51.37 MB
+    57aad21b9e0f: Download complete
+    15554fdf9e92: Downloading [==============================================>    ] 19.43 MB/20.8 MB
+    bcf0d5f75458: Download complete
+    5b5fbf431acf: Downloading [==>                                                ] 6.978 MB/124.6 MB
+    c41dfae30533: Waiting
+    a61b46d690d8: Waiting
+    4c91e3518d46: Waiting
+    9c719d94c318: Waiting
+
 To shut the server down once you're done:
 
     docker-compose down
