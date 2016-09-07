@@ -7,7 +7,7 @@ The main user interface for analysis is [Jupyter](http://jupyter.org) notebook.
 Packaged in the image is [jira-cycle-extract](https://github.com/fikander/jira-cycle-extract) library which performs basic analysis of JIRA issues. Configuration of JIRA query, columns and data to be extracted from issues is supplied as YAML text.
 
 # Installation
-The only prerequisite to installation is Docker. Install [Docker for your platform](docker.com) and make sure `docker` and `docker-compose` are working before continuing.
+The only prerequisite to installation is Docker. Install [Docker for your platform](http://docker.com) and make sure `docker` and `docker-compose` are working before continuing.
 
     git clone https://github.com/fikander/jira-adhoc-analysis.git
     cd jira-adhoc-analysis
@@ -82,7 +82,8 @@ Once you've copied the notebook and configured it, execute notebook with Cell ->
 # Advanced Usage
 You can open a terminal on the Jupyter server using:
 
-    docker-compose -f docker-compose.yml exec server /bin/bash
+    cd jira-adhoc-analysis
+    docker-compose exec server /bin/bash
 
 From there, you can use iPython to execute arbitrary code using pandas, jira-cycle-extract and other installed modules.
 
