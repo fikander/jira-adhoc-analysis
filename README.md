@@ -13,13 +13,13 @@ The only prerequisite to installation is Docker. Install [Docker for your platfo
     cd jira-adhoc-analysis
 
 To configure JIRA connection, create .env file containing environment variable definition with JIRA domain, username and password (optionally 'token' which is base64 encoded username:password string).
-There's example `.env-sample` file which you can copy and modify.
+There's example `.env-sample` file which you can copy and modify with your values.
 
     cp .env-sample .env
 
 Next, launch the server:
 
-    docker-compose up
+    docker-compose up -d
 
 This will take time for the first time as the image (around 1GB at the moment) needs to be pulled from Docker hub:
 
@@ -40,6 +40,8 @@ This will take time for the first time as the image (around 1GB at the moment) n
 To shut the server down once you're done:
 
     docker-compose down
+
+Note, that if you change values in `.env`, you need to restart the server with `docker-compose restart` for changes to take effect.
 
 # Usage
 `jira-adhoc-analysis` Docker container exposes Jupyter notebook at http://localhost:8888. Navigate there for Jupyter UI, where the most interesting stuff happens:
