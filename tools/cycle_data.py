@@ -1,4 +1,5 @@
 import getpass
+import base64
 from jira import JIRA
 from jira_cycle_extract import cycletime, config
 
